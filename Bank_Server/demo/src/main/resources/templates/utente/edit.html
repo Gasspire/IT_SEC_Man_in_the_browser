@@ -1,0 +1,23 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <head>
+        <title>DaveBank!</title>
+    </head>
+    <header class="bank-header">
+        <div class="bank-logo">🏦 DaveBank</div>
+        <div class="bank-slogan">La tua banca digitale di fiducia</div>
+    </header>
+    <body>
+        <h1>Crea o modifica utente!</h1>
+        <form th:object="${utente}" th:action="@{/utente/save}" method="post">
+            <p>IBAN: <input th:field="${utente.iban}" th:readonly="${iban != 0}" th:disabled="${iban == 0}"/></p>
+            <p>NOME: <input th:field="${utente.nome}"/></p>
+            <p>COGNOME: <input th:field="${utente.cognome}"/></p>
+            <p>SALDO: <input th:field="${utente.saldo}"/></p>
+
+            <input type="submit" value="conferma!"/>
+        </form>
+    </body>
+
+</html>

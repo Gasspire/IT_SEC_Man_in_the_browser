@@ -1,0 +1,25 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <head>
+        <title>DaveBank!</title>
+    </head>
+    <header class="bank-header">
+        <div class="bank-logo">🏦 DaveBank</div>
+        <div class="bank-slogan">La tua banca digitale di fiducia</div>
+    </header>
+    <body>
+        <h1>Effettua il bonifico a chi vuoi in maniera sicura!</h1>
+        <form th:object="${transazione}" th:action="@{/transazione/salva}" method="post">
+            <p>ID: <input id="id" th:field="${transazione.id}" th:readonly="${id != 0}" th:disabled="${id == 0}"/></p>
+
+            <p>IBAN_MITTENTE: <input id="iban_mittente" th:field="${transazione.iban_mittente}" readonly/></p>
+            <p>IBAN_DESTINATARIO: <input id="iban_destinatario" th:field="${transazione.iban_destinatario}" /></p>
+
+
+            <p>IMPORTO: <input id="importo" th:field="${transazione.importo}"/></p>
+
+            <input type="submit" value="conferma!"/>
+        </form>
+    </body>
+</html>

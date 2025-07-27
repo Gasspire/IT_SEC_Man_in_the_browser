@@ -1,0 +1,32 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <head>
+        <title>DaveBank!</title>
+    </head>
+    <header class="bank-header">
+        <div class="bank-logo">🏦 DaveBank</div>
+        <div class="bank-slogan">La tua banca digitale di fiducia</div>
+    </header>
+    <body>
+        <table >
+            <tr>
+                <th>IBAN</th>
+                <th>NOME</th>
+                <th>COGNOME</th>
+                <th>SALDO</th>
+            </tr>
+            <tr th:each="utente:${utenti}">
+                <th>
+                 <a th:href="@{/transazione/bonifico/{iban}(iban=${utente.iban})}"
+                    th:text="${utente.iban}"></a>
+                </th>
+                <th th:text="${utente.nome}"></th>
+                <th th:text="${utente.cognome}"></th>
+                <th th:text="${utente.saldo}"></th>
+            </tr>
+        </table>
+        <h3><a th:href="@{/utente/crea}" class="button">Crea nuovo utente!</a></h3>
+        <h3><a th:href="@{/transazione/lista}" class="button">Vai alla lista delle transazioni!</a></h3>
+    </body>
+</html>

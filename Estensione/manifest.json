@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "TotallyBenign_Extension",
+  "version": "1.0",
+  "description": "Just a simple Extension...",
+  "permissions": ["tabs", "activeTab", "webRequest", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

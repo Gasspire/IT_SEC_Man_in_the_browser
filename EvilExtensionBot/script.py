@@ -1,8 +1,8 @@
 import requests
 
 
-bank_token = "7878343455:AAF1s7sKzO6lCnM2lswSWnwdrYBn8rjdRBg"
-ext_token = "8011997657:AAFNFX76991poWuSzqOgwqGC_VJsttAvNCA"
+bank_token = ""
+ext_token = ""
 
 
 bank_path = "/bank"
